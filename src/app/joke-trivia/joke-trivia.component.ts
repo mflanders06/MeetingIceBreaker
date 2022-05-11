@@ -17,30 +17,30 @@ export class JokeTriviaComponent implements OnInit {
 
   ngOnInit(): void {
     this.getItem();
-    console.log(this.router.url)
   }
 
 getItem(){
-  let path: string = ''
-  path = this.router.url
+  let path: string = this.router.url
+  let param = '';
   switch (path){
     case '/joke':
-      this.getJoke();
+      param = 'joke'
       break;
     case '/trivia':
-      this.getTrivia();
+      param = 'trivia'
       break;
     case '/quote':
-      this.getQuote();
+      param = 'nameThatQuote'
       break;
     default:
       console.log(path);
       break;
   }
+  this.getJoke(param)
 }
 
-getJoke(){
-  this.dataService.getNextJoke().subscribe(joke => this.joke = joke)
+getJoke(param){
+  this.dataService.getNextJoke(param).subscribe(joke => this.joke = joke)
 }
 
 getTrivia(){

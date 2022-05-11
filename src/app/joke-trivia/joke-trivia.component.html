@@ -1,7 +1,7 @@
 <div>
     <div>
-        <span *ngIf="joke?.category === 'joke' ">Dad Joke</span>
-        <span *ngIf="joke?.category === 'joke' ">{{joke?.category}}</span>
+        <span *ngIf="joke?.category === 'joke' ">DAD JOKE</span>
+        <span *ngIf="joke?.category != 'joke' ">{{joke?.category | uppercase}}</span>
     </div>
     <div *ngIf="joke?.hint">Hint: {{joke?.hint}}</div>
     <div>{{joke?.question}}</div>

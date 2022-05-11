@@ -48,7 +48,7 @@ export class DataService {
 
   constructor() { }
 
-  getNextJoke(){
+  getNextJoke(category: JokeCategory){
 
     return of(this.jokeList.filter( val => val.category === JokeCategory.joke ).sort( (a, b) => {
       return b.lastUsed > a.lastUsed ? -1 : 1
