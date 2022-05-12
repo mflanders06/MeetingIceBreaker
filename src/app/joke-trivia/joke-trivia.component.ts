@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
-import { Joke } from '../joke';
+import { Joke, JokeCategory } from '../joke';
 
 
 @Component({
@@ -21,34 +21,27 @@ export class JokeTriviaComponent implements OnInit {
 
 getItem(){
   let path: string = this.router.url
-  let param = '';
+  let param = JokeCategory.joke;
   switch (path){
     case '/joke':
-      param = 'joke'
+      param = JokeCategory.joke;
       break;
     case '/trivia':
-      param = 'trivia'
+      param = JokeCategory.trivia
       break;
     case '/quote':
-      param = 'nameThatQuote'
+      param = JokeCategory.nameThatQuote
       break;
     default:
       console.log(path);
       break;
   }
+  console.log(param)
   this.getJoke(param)
 }
 
-getJoke(param){
+getJoke(param: JokeCategory){
   this.dataService.getNextJoke(param).subscribe(joke => this.joke = joke)
-}
-
-getTrivia(){
-  this.dataService.getNextTrivia().subscribe(trivia => this.joke = trivia)
-}
-
-getQuote(){
-  this.dataService.getNextQuote().subscribe(quote => this.joke = quote)
 }
 
 showAnswer(){

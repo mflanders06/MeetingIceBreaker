@@ -50,15 +50,7 @@ export class DataService {
 
   getNextJoke(category: JokeCategory){
 
-    return of(this.jokeList.filter( val => val.category === JokeCategory.joke ).sort( (a, b) => {
-      return b.lastUsed > a.lastUsed ? -1 : 1
-    })[0])
-
-  }
-
-  getNextTrivia(){
-
-    return of(this.jokeList.filter( val => val.category === JokeCategory.trivia ).sort( (a, b) => {
+    return of(this.jokeList.filter( val => val.category === category ).sort( (a, b) => {
       return b.lastUsed > a.lastUsed ? -1 : 1
     })[0])
 
@@ -71,15 +63,6 @@ export class DataService {
     })[0])
 
   }
-
-  getNextQuote(){
-
-    return of(this.jokeList.filter( val => val.category === JokeCategory.nameThatQuote ).sort( (a, b) => {
-      return b.lastUsed > a.lastUsed ? -1 : 1
-    })[0])
-
-  }
-
 
 
 
