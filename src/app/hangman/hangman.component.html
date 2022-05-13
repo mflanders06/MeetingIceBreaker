@@ -1,1 +1,6 @@
-<p>hangman works!</p>
+<div class="answer">
+    <div class="answer-characters" *ngFor="let character of answerArray; let i = index" >
+        <span [attr.data-index]="i">{{character}}</span>
+
+    </div>
+</div>
