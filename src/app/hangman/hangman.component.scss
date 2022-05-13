@@ -5,3 +5,17 @@
 .answer-characters{
     flex-direction: row;
 }
+
+.ans-char-container{
+    border: 5px solid orange;
+    width: 25px;
+    height: 25px;
+    margin: 5px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+input{
+    width: 25px;
+    margin: 5px;
+}

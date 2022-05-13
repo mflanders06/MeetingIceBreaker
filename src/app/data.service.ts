@@ -41,7 +41,7 @@ export class DataService {
       id: 5,
       category: JokeCategory.hangman,
       question: "Map",
-      answer: "Amerigo Vespucci",
+      answer: "AMERIGO VESPUCCI",
       lastUsed: new Date('2022-05-11 00:00:00')
     }
   ]

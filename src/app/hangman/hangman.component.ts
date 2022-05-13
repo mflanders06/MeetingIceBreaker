@@ -19,6 +19,9 @@ export class HangmanComponent implements OnInit {
 
   }
   answerArray: string[] = []
+  guessArray: string[] = []
+  guessIndex: number[] = []
+  hidden: number = 1
 
   ngOnInit(): void {
     this.getHangman();
@@ -33,6 +36,29 @@ export class HangmanComponent implements OnInit {
 
   splitAnswer(){
     this.answerArray = this.hangman?.answer.split("");
+  }
+
+  inputCharacter(guessNumber: number, event: any){
+    const {target:{value}} = event
+    this.guessArray[guessNumber] = value.toString().toUpperCase()
+    this.validateGuess()
+  }
+
+  validateGuess(){
+    this.answerArray.forEach((element, index) => {
+      if(this.guessArray.includes(element) && !this.guessIndex.includes(index)){ //if the letter is in the answer, and the index of the answer isn't already in the guessIndex
+        this.guessIndex.push(index) //add index to the guessIndex array
+      }
+    });
+  }
+
+  checkIndex(index:number){
+    console.log('The guess index', this.guessIndex)
+    return this.guessIndex.includes(index)
+  }
+
+  showAnswer(){
+    this.hidden = 0
   }
 
   

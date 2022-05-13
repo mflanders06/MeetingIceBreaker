@@ -1,6 +1,22 @@
+<form >
+    <input maxlength="1" (input)="inputCharacter(0, $event)">
+    <input maxlength="1" (input)="inputCharacter(1, $event)">
+    <input maxlength="1" (input)="inputCharacter(2, $event)">
+    <input maxlength="1" (input)="inputCharacter(3, $event)">
+    <input maxlength="1" (input)="inputCharacter(4, $event)">
+    <input maxlength="1" (input)="inputCharacter(5, $event)">
+</form>
+
 <div class="answer">
     <div class="answer-characters" *ngFor="let character of answerArray; let i = index" >
-        <span [attr.data-index]="i">{{character}}</span>
-
+        <div class="ans-char-container">
+            <div [attr.data-index]="i">
+                <span *ngIf="checkIndex(i)" >{{character}}</span>
+            </div>
+        </div>
     </div>
 </div>
+
+<button (click)="showAnswer()">Answer</button>
+
+<div *ngIf="hidden === 0">{{hangman?.answer}}</div>
